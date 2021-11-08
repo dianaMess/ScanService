@@ -7,13 +7,10 @@ namespace scan_util
     {
         static void Main(string[] args)
         {
-            if (args.Length == 0)   //check if path wasn't given in command line
+            string read = Console.ReadLine();
+            if (read != "\n")
             {
-                Console.WriteLine("Path is not given");
-            }
-            else
-            {
-                string path = args[0];
+                string path = read;
                 int counter_1 = 0, counter_2 = 0, counter_3 = 0, files_counter = 0, errors = 0;
                 string sample1 = "<script>evil_script()</script>";
                 string sample2 = "rm -rf " + path;
