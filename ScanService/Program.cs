@@ -16,10 +16,6 @@ namespace ScanService
                 strr = Console.ReadLine();
                 if (strr != String.Empty)
                 {
-                    if (strr != "scan_util")
-                    {
-                        break;
-                    }
                     string[] strs = strr.Split(' ');
                     using (Process myProcess = new Process())
                     {
@@ -29,10 +25,11 @@ namespace ScanService
                             string path = Environment.CurrentDirectory;
                             string[] s = path.Split(@"\");
                             string add = s[^1];
-                            string full = @"../../../..\scan_util\bin\Debug\" + add + @"\" + strr;
+                            string full = @"../../../..\scan_util\bin\Debug\" + add + @"\" + strs[0];
                             myProcess.StartInfo.FileName = full;
-                            myProcess.StartInfo.CreateNoWindow = false;
+                            myProcess.StartInfo.CreateNoWindow = true;
                             myProcess.StartInfo.RedirectStandardOutput = true;
+                            myProcess.StartInfo.Arguments = strs[2];
                             myProcess.Start();
                             string result = myProcess.StandardOutput.ReadToEnd();
                             string file_path = counter.ToString();
