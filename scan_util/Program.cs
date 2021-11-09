@@ -57,6 +57,7 @@ namespace scan_util
                     var elapsed = watch.Elapsed;
                     //print results
                     //Console.WriteLine(Environment.CurrentDirectory);
+                    Console.WriteLine("Directory: " + path);
                     Console.WriteLine("====== Scan result ======");
                     Console.WriteLine("Processed files: " + files_counter);
                     Console.WriteLine("JS detects: " + counter_1);
